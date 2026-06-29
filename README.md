@@ -4,6 +4,7 @@ Set-up VPS setup.md
 
 
 ### Local development tools
+
 - tmux
 sudo apt install tmux
 
@@ -15,6 +16,7 @@ sudo apt install nginx
 
 
 ### FE - nginx
+
 - verify nginx config
 sudo nginx -t -c /path/to/your/nginx.conf
 
