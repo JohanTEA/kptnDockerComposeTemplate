@@ -1,10 +1,16 @@
-# Docker Engine + Docker compose
+# Docker Compose 
+This includes Docker Engine etc.
 
 https://hub.docker.com/
 https://docs.docker.com/get-started/
 
+Docker Compose intro
+- https://github.com/docker/getting-started-todo-app/tree/main
 
-## Install
+- https://www.youtube.com/watch?v=eGz9DS-aIeY
+- https://www.youtube.com/watch?v=DM65_JyGxCo
+
+## Installation (Local development and VPS server)
 
 https://docs.docker.com/engine/install/ubuntu/
 https://docs.docker.com/compose/install/linux/
@@ -52,5 +58,16 @@ verify installation:
 
 ## Test run
 
+### Docker test image 'hello-world'
+
     sudo docker run hello-world
+
+### Base nginx image
+
+    sudo docker system info
+    sudo docker pull nginx
+    sudo docker run --name nginx-test -itd -p 8081:80 nginx
+    sudo docker ps
+    sudo docker rm nginx-test
+
 

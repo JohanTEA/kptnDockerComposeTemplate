@@ -1,0 +1,46 @@
+##########################################
+# KPTN VPS Docker Compose configuration
+##########################################
+
+services:
+
+  ##########################################
+  # Service: Traefik reverse proxy and load balancer
+  ##########################################
+  proxy:
+    image: traefik:v3.6
+    command: --providers.docker
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  ##########################################
+  # Service: KPTN Main FrontEnd
+  ##########################################
+  # todo
+
+  ##########################################
+  # Service: KPTN App1 FrontEnd
+  ##########################################
+  # todo
+
+  ##########################################
+  # Service: KPTN App1 BackEnd
+  ##########################################
+  # todo
+
+  ##########################################
+  # Service: KPTN App1 Database
+  ##########################################
+  # todo
+
+###################################################
+# Volumes
+#
+# Persistant data for the database service.
+# We are only using default values, hence the lack of any configuration for the volume.
+###################################################
+volumes:
+  todo-database-data:

@@ -20,8 +20,8 @@ func main() {
         json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
     })
 
-    // Start server on port 8080
-    fmt.Println("Server running on :8080")
-    log.Fatal(http.ListenAndServe(":8080", nil))
+    // Start server on port 8091
+    fmt.Println("Server running on :8091")
+    log.Fatal(http.ListenAndServe(":8091", nil))
 }
 
