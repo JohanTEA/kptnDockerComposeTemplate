@@ -87,3 +87,5 @@ verify installation:
 
     sudo docker container prune #removes all stopped containers
 
+    sudo docker exec -it <container_name_or_id> /bin/sh # shell access for Alpine images
+    sudo docker exec -it <container_name_or_id> /bin/bash # shell access for Ubuntu images
