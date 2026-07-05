@@ -5,6 +5,7 @@
 # Run: sudo docker run -p 8091:8091 kptn-app1-backend
 
 # Build stage
+## golang:<golang version>-apline
 FROM golang:1.26-alpine AS builder
 WORKDIR /appSrc
 COPY . .
@@ -12,6 +13,7 @@ ENV CGO_ENABLED=0
 RUN go build -ldflags "-s -w -X main.version=$(cat version.txt)" -o /dist/kptnApp1BackEnd
 
 # Runtime stage
+## alpine:<alpine version>
 FROM alpine:latest
 COPY --from=builder /dist /app
 # Optionally copy CA certs and timezone data

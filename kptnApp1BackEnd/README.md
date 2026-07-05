@@ -3,8 +3,9 @@
 ## Local development
 
 Install Go
+The snap argument '--classic' is so the application can access files outside the snap sandbox.
 
-    sudo apt install go
+    sudo snap install go --classic
 
 ### Local build
 
