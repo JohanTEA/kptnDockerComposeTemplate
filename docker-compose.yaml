@@ -33,7 +33,11 @@ services:
   ##########################################
   # Service: KPTN App1 BackEnd
   ##########################################
-  # todo
+  kptn-app1-backend:
+    image: kptn-app1-backend:latest
+    ports:
+      - 91:8091
+    restart: always
 
   ##########################################
   # Service: KPTN App1 Database

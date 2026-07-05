@@ -95,10 +95,10 @@ verify installation:
 
 ## Docker Compose
 
-    sudo docker-compose up -d  # Starts DC 'docker-compose.yaml'
+    sudo docker compose up -d  # Starts DC 'docker-compose.yaml'
 
-    sudo docker-compose ps  # Lists DC containers
+    sudo docker compose ps  # Lists DC containers
 
-    sudo docker-compose stop  # Stops DC 'docker-compose.yaml' containers
+    sudo docker compose stop  # Stops DC 'docker-compose.yaml' containers
 
-    sudo docker-compose down  # Stops and prunes DC 'docker-compose.yaml' containers
+    sudo docker compose down  # Stops and prunes DC 'docker-compose.yaml' containers
