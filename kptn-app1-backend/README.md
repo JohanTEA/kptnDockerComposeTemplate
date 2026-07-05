@@ -12,7 +12,7 @@ The snap argument '--classic' is so the application can access files outside the
 Build Go app for production
 
     mkdir build
-    go build -ldflags "-s -w -X main.version=$(cat version.txt).dev" -o ./build/kptnApp1BackEnd
+    go build -C ./src -ldflags "-s -w -X main.version=$(cat version.txt).dev" -o ./build/kptnApp1BackEnd
 
 ### Run dev build
 
@@ -20,11 +20,6 @@ Build Go app for production
     
 Publication on: http://127.0.0.1:8091/health
 
-## Production Docker build
+## Production
 
-    sudo docker build -t kptn-app1-backend .
-    sudo docker images
-
-### Run prod build
-
-    sudo docker run -p 8091:8091 kptn-app1-backend
+See 'Dockerfile'.

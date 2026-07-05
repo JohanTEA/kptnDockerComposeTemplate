@@ -10,7 +10,7 @@ FROM golang:1.26-alpine AS builder
 WORKDIR /appSrc
 COPY . .
 ENV CGO_ENABLED=0
-RUN go build -ldflags "-s -w -X main.version=$(cat version.txt)" -o /dist/kptnApp1BackEnd
+RUN go build -C ./src -ldflags "-s -w -X main.version=$(cat version.txt)" -o /dist/kptnApp1BackEnd
 
 # Runtime stage
 ## alpine:<alpine version>

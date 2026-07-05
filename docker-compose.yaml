@@ -22,7 +22,7 @@ services:
   kptn-main-frontend:
     image: kptn-main-frontend:latest
     ports:
-      - 80:8080
+      - 8080:80
     restart: always
 
   ##########################################
@@ -31,7 +31,7 @@ services:
   kptn-app1-frontend:
     image: kptn-app1-frontend:latest
     ports:
-      - 81:80
+      - 8081:80
     restart: always
 
   ##########################################
@@ -40,7 +40,7 @@ services:
   kptn-app1-backend:
     image: kptn-app1-backend:latest
     ports:
-      - 91:8091
+      - 8091:8091
     restart: always
 
   ##########################################
