@@ -24,7 +24,7 @@ https://docs.docker.com/compose/install/linux/
     sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 ### Add the repository to Apt sources:
-
+```shell
     sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
     Types: deb
     URIs: https://download.docker.com/linux/ubuntu
@@ -33,6 +33,7 @@ https://docs.docker.com/compose/install/linux/
     Architectures: $(dpkg --print-architecture)
     Signed-By: /etc/apt/keyrings/docker.asc
     EOF
+```
 
 ### Install
 
@@ -46,7 +47,7 @@ if docker is not running:
 verify installation:
     sudo docker run hello-world
 
-## Service commands
+## systemctl commands
 
     sudo systemctl status docker
 
@@ -70,4 +71,19 @@ verify installation:
     sudo docker ps
     sudo docker rm nginx-test
 
+## Docker commands
+
+    docker --help
+
+### Managing local Docker image repo
+    sudo docker images
+    sudo docker pull <image from Docker hub>
+    sudo docker rmi <image id>
+    
+### Managing local Docker containers
+    sudo docker container ls
+    sudo docker container stop <container id>
+    sudo docker container rm <container id>
+
+    sudo docker container prune #removes all stopped containers
 
