@@ -23,7 +23,8 @@ https://docs.docker.com/compose/install/linux/
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-### Add the repository to Apt sources:
+### Add the repository to Apt sources
+
 ```shell
     sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
     Types: deb
@@ -57,7 +58,7 @@ verify installation:
     sudo systemctl stop docker
     sudo systemctl disable docker
 
-## Test run
+## Docker Test run
 
 ### Docker test image 'hello-world'
 
@@ -76,11 +77,13 @@ verify installation:
     docker --help
 
 ### Managing local Docker image repo
+
     sudo docker images
     sudo docker pull <image from Docker hub>
     sudo docker rmi <image id>
     
 ### Managing local Docker containers
+
     sudo docker container ls
     sudo docker container stop <container id>
     sudo docker container rm <container id>
@@ -89,3 +92,13 @@ verify installation:
 
     sudo docker exec -it <container_name_or_id> /bin/sh # shell access for Alpine images
     sudo docker exec -it <container_name_or_id> /bin/bash # shell access for Ubuntu images
+
+## Docker Compose
+
+    sudo docker-compose up -d  # Starts DC 'docker-compose.yaml'
+
+    sudo docker-compose ps  # Lists DC containers
+
+    sudo docker-compose stop  # Stops DC 'docker-compose.yaml' containers
+
+    sudo docker-compose down  # Stops and prunes DC 'docker-compose.yaml' containers

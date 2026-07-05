@@ -7,19 +7,23 @@ services:
   ##########################################
   # Service: Traefik reverse proxy and load balancer
   ##########################################
-  proxy:
-    image: traefik:v3.6
-    command: --providers.docker
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+  #proxy:
+  #  image: traefik:v3.6
+  #  command: --providers.docker
+  #  ports:
+  #    - 80:80
+  #    - 443:443
+  #  volumes:
+  #    - /var/run/docker.sock:/var/run/docker.sock
 
   ##########################################
   # Service: KPTN Main FrontEnd
   ##########################################
-  # todo
+  kptn-main-frontend:
+    image: kptn-main-frontend:latest
+    ports:
+      - 80:8080
+    restart: always
 
   ##########################################
   # Service: KPTN App1 FrontEnd
@@ -42,5 +46,5 @@ services:
 # Persistant data for the database service.
 # We are only using default values, hence the lack of any configuration for the volume.
 ###################################################
-volumes:
-  todo-database-data:
+#volumes:
+#  todo-database-data:
