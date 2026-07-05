@@ -28,7 +28,11 @@ services:
   ##########################################
   # Service: KPTN App1 FrontEnd
   ##########################################
-  # todo
+  kptn-app1-frontend:
+    image: kptn-app1-frontend:latest
+    ports:
+      - 81:80
+    restart: always
 
   ##########################################
   # Service: KPTN App1 BackEnd
