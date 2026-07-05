@@ -6,7 +6,7 @@
 
 # Build stage
 ## Using nginx image for building since the source is plain HTML.
-## nginx:<nginx version>-apline
+## nginx:<nginx version>-alpine
 FROM nginx:1.31-alpine AS builder
 WORKDIR /appSrc
 COPY . .

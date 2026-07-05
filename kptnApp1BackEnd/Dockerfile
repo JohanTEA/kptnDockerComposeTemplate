@@ -5,7 +5,7 @@
 # Run: sudo docker run -p 8091:8091 kptn-app1-backend
 
 # Build stage
-## golang:<golang version>-apline
+## golang:<golang version>-alpine
 FROM golang:1.26-alpine AS builder
 WORKDIR /appSrc
 COPY . .
