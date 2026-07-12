@@ -7,8 +7,13 @@ https://docs.docker.com/get-started/
 Docker Compose intro
 - https://github.com/docker/getting-started-todo-app/tree/main
 
-- https://www.youtube.com/watch?v=eGz9DS-aIeY
-- https://www.youtube.com/watch?v=DM65_JyGxCo
+- https://www.youtube.com/watch?v=eGz9DS-aIeY (YT, NetworkChuck, Learn Docker)
+- https://www.youtube.com/watch?v=DM65_JyGxCo (YT, NetworkChuck, Learn Docker Compose)
+- https://www.youtube.com/watch?v=F-9KWQByeU0 (YT, Dreams Of Code, Setting up a production ready VPS, Traefik)
+-- https://github.com/dreamsofcode-io/guestbook
+-- https://doc.traefik.io/traefik/getting-started/
+-- https://containrrr.dev/watchtower/
+
 
 ## Installation (Local development and VPS server)
 
