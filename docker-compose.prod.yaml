@@ -11,7 +11,7 @@
 services:
 
   ##########################################
-  # Service: Watchtower - Monitoring 
+  # Service: Watchtower - Automatic deployment 
   ##########################################
   #watchtower:
   #  image: containrrr/watchtower
@@ -26,14 +26,14 @@ services:
   ##########################################
   # Service: Traefik - Reverse proxy and load balancer
   ##########################################
-  reverse-proxy:
+  traefik:
     image: traefik:v3.7
     restart: always
     command:
       #- "--log.level=INFO"
       - "--log.level=ERROR"
       - "--accesslog=true"
-      - "--providers.docker"
+      - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--api.insecure=true"
       - "--entryPoints.websecure.address=:443"
@@ -48,10 +48,9 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
     volumes:
       #- letsencrypt:/letsencrypt
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
   ##########################################
   # Service: KPTN Main FrontEnd
@@ -62,6 +61,7 @@ services:
     labels:
       #- "com.centurylinklabs.watchtower.enable=true"
       - "traefik.enable=true"
+      - "traefik.http.routers.kptn-main-frontend.rule=Host(`localhost`)"
 
   ##########################################
   # Service: KPTN App1 FrontEnd
@@ -69,8 +69,10 @@ services:
   kptn-app1-frontend:
     image: kptn-app1-frontend:latest
     restart: always
-    ports:
-      - 8081:80
+    labels:
+      #- "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.enable=true"
+      - "traefik.http.routers.kptn-app1-frontend.rule=Host(`app1.localhost`)"
 
   ##########################################
   # Service: KPTN App1 BackEnd
@@ -78,8 +80,24 @@ services:
   kptn-app1-backend:
     image: kptn-app1-backend:latest
     restart: always
-    ports:
-      - 8091:8091
+    labels:
+      #- "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.enable=true"
+      - "traefik.http.routers.kptn-app1-backend.rule=Host(`api.app1.localhost`)"
+      #- "traefik.http.routers.kptn-app1-backend.rule=Host(`app1.localhost`) && Path(`/apiet`)"
+    #depends_on:
+    #  db:
+    #    condition: service_healthy
+    #secrets:
+    #  - db-password
+    #environment:
+    #  - POSTGRES_HOST=db
+    #  - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+    #  - POSTGRES_USER=postgres
+    #  - POSTGRES_DB=guestbook
+    #  - POSTGRES_PORT=5432
+    #  - POSTGRES_SSLMODE=disable
+    
 
   ##########################################
   # Service: KPTN App1 Database

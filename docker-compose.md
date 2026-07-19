@@ -13,7 +13,10 @@ Docker Compose intro
 -- https://github.com/dreamsofcode-io/guestbook
 -- https://doc.traefik.io/traefik/getting-started/
 -- https://containrrr.dev/watchtower/
-
+- https://www.youtube.com/watch?v=CmUzMi5QLzI (Jim's Garage, Traefik 3.3)
+-- https://github.com/JamesTurland/JimsGarage/tree/main/Traefikv3
+- https://www.youtube.com/watch?v=mZbLvGQqEvY (Andrew Schmelyun, Manage multiple sites with Docker and Traefik)
+-- https://github.com/aschmelyun/docker-compose-traefik
 
 ## Installation (Local development and VPS server)
 
@@ -101,9 +104,19 @@ verify installation:
 ## Docker Compose
 
     sudo docker compose up -d  # Starts DC 'docker-compose.yaml'
+    
+    sudo docker-compose logs -f  # Shows standard-out logs for all apps
 
     sudo docker compose ps  # Lists DC containers
 
     sudo docker compose stop  # Stops DC 'docker-compose.yaml' containers
 
     sudo docker compose down  # Stops and prunes DC 'docker-compose.yaml' containers
+    sudo docker compose down --remove-orphans  # Stops and prunes DC all containers
+
+## Docker Network
+
+    sudo docker network ls  # List networks
+    
+    sudo docker network prune  # Remove All Unused Networks
+    

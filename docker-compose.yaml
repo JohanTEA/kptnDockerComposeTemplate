@@ -2,57 +2,65 @@
 # KPTN VPS Docker Compose configuration
 ##########################################
 
+# Traefik dashboard: http://localhost:8080/
+# KPTN Main: http://localhost
+# KPTN App1 FrontEnd: http://app1.localhost/
+# KPTN App1 API health: http://api.app1.localhost/health
+
+
 services:
 
   ##########################################
-  # Service: Traefik reverse proxy and load balancer
+  # Service: Traefik - Reverse proxy and load balancer
   ##########################################
-  #proxy:
-  #  image: traefik:v3.6
-  #  command: --providers.docker
-  #  ports:
-  #    - 80:80
-  #    - 443:443
-  #  volumes:
-  #    - /var/run/docker.sock:/var/run/docker.sock
+  traefik:
+    image: traefik:v3.7
+    restart: always
+    command:
+      - "--log.level=INFO"
+      #- "--log.level=ERROR"
+      - "--accesslog=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--api.insecure=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   ##########################################
   # Service: KPTN Main FrontEnd
   ##########################################
   kptn-main-frontend:
     image: kptn-main-frontend:latest
-    ports:
-      - 8080:80
     restart: always
+    labels:
+      #- "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.enable=true"
+      - "traefik.http.routers.kptn-main-frontend.rule=Host(`localhost`)"
 
   ##########################################
   # Service: KPTN App1 FrontEnd
   ##########################################
   kptn-app1-frontend:
     image: kptn-app1-frontend:latest
-    ports:
-      - 8081:80
     restart: always
+    labels:
+      #- "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.enable=true"
+      - "traefik.http.routers.kptn-app1-frontend.rule=Host(`app1.localhost`)"
 
   ##########################################
   # Service: KPTN App1 BackEnd
   ##########################################
   kptn-app1-backend:
     image: kptn-app1-backend:latest
-    ports:
-      - 8091:8091
     restart: always
+    ports:
+      - ":80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.kptn-app1-backend.rule=Host(`api.app1.localhost`)"
 
-  ##########################################
-  # Service: KPTN App1 Database
-  ##########################################
-  # todo
-
-###################################################
-# Volumes
-#
-# Persistant data for the database service.
-# We are only using default values, hence the lack of any configuration for the volume.
-###################################################
-#volumes:
-#  todo-database-data:

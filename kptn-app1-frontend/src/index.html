@@ -1,2 +1,25 @@
-<h1>KPTN - App1 FrontEnd</h1>
+<body>
+  <h1>KPTN - App1 FrontEnd</h1>
 
+  <a href="http://localhost">KPTN Main: http://localhost</a>
+
+  <script>
+    console.log("Hello, world!");
+    
+    fetch('http://api.app1.localhost/health')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+      
+      fetch('http://api.app1.localhost')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+  </script>
+</body>
