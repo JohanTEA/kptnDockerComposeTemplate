@@ -62,5 +62,5 @@ services:
       - ":80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.kptn-app1-backend.rule=Host(`api.app1.localhost`)"
+      - "traefik.http.routers.kptn-app1-backend.rule=Host(`app1.localhost`) && PathPrefix(`/api`)"
 
