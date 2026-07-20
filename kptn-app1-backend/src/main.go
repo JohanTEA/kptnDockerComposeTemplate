@@ -27,16 +27,10 @@ func main() {
 
 	http.HandleFunc("/api", func(w http.ResponseWriter, r *http.Request) {
 		visitors++
-		visitorsStr := strconv.Itoa(visitors)
+		requestsStr := strconv.Itoa(visitors)
 
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]string{"visitors": visitorsStr})
-	})
-
-	// test
-	http.HandleFunc("/api/test", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]string{"test": "api/test"})
+		json.NewEncoder(w).Encode(map[string]string{"requests": requestsStr})
 	})
 
 	// Start server

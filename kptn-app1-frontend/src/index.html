@@ -1,25 +1,41 @@
-<body>
-  <h1>KPTN - App1 FrontEnd</h1>
+<html>
 
-  <a href="http://localhost">KPTN Main: http://localhost</a>
-
+<head>
   <script>
     console.log("Hello, world!");
-    
+
     fetch('http://app1.localhost/api/health')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
       })
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        document.getElementById("backendHealth").innerHTML = JSON.stringify(data);
+      })
       .catch(error => console.error('Error:', error));
-      
-      fetch('http://app1.localhost/api')
+
+    fetch('http://app1.localhost/api')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
       })
-      .then(data => console.log(data))
+      .then(data  => {
+        console.log(data)
+        document.getElementById("nrOfReq").innerHTML = JSON.stringify(data);
+      })
       .catch(error => console.error('Error:', error));
   </script>
+</head>
+
+<body>
+  <h1>KPTN - App1 FrontEnd</h1>
+
+  <a href="http://localhost">KPTN Main: http://localhost</a><br />
+
+  Values fetched from backend<br />
+  * Backend health: <span id="backendHealth"></span><br />
+  * Number of requests: <span id="nrOfReq"></span><br />
 </body>
+
+</html>
