@@ -2,25 +2,36 @@
 This includes Docker Engine etc.
 
 https://hub.docker.com/
+
 https://docs.docker.com/get-started/
 
-Docker Compose intro
+## Learn
+
+### Docker Compose intro
+
 - https://github.com/docker/getting-started-todo-app/tree/main
 
-- https://www.youtube.com/watch?v=eGz9DS-aIeY (YT, NetworkChuck, Learn Docker)
-- https://www.youtube.com/watch?v=DM65_JyGxCo (YT, NetworkChuck, Learn Docker Compose)
-- https://www.youtube.com/watch?v=F-9KWQByeU0 (YT, Dreams Of Code, Setting up a production ready VPS, Traefik)
--- https://github.com/dreamsofcode-io/guestbook
--- https://doc.traefik.io/traefik/getting-started/
--- https://containrrr.dev/watchtower/
-- https://www.youtube.com/watch?v=CmUzMi5QLzI (Jim's Garage, Traefik 3.3)
--- https://github.com/JamesTurland/JimsGarage/tree/main/Traefikv3
-- https://www.youtube.com/watch?v=mZbLvGQqEvY (Andrew Schmelyun, Manage multiple sites with Docker and Traefik)
--- https://github.com/aschmelyun/docker-compose-traefik
+## Quick and good!
+
+https://www.youtube.com/watch?v=eGz9DS-aIeY - YT, NetworkChuck, Learn Docker
+
+https://www.youtube.com/watch?v=DM65_JyGxCo - YT, NetworkChuck, Learn Docker Compose
+
+https://www.youtube.com/watch?v=F-9KWQByeU0 - YT, Dreams Of Code, Setting up a production ready VPS, Traefik
+- https://github.com/dreamsofcode-io/guestbook
+- https://doc.traefik.io/traefik/getting-started/
+- https://containrrr.dev/watchtower/
+
+https://www.youtube.com/watch?v=CmUzMi5QLzI - Jim's Garage, Traefik 3.3
+- https://github.com/JamesTurland/JimsGarage/tree/main/Traefikv3
+
+https://www.youtube.com/watch?v=mZbLvGQqEvY - Andrew Schmelyun, Manage multiple sites with Docker and Traefik
+- https://github.com/aschmelyun/docker-compose-traefik
 
 ## Installation (Local development and VPS server)
 
 https://docs.docker.com/engine/install/ubuntu/
+
 https://docs.docker.com/compose/install/linux/
 
 ### Add Docker's official GPG key:
@@ -50,10 +61,12 @@ https://docs.docker.com/compose/install/linux/
     sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     sudo systemctl status docker
 
-if docker is not running:
+if docker is not running after the installation, run:
+
     sudo systemctl start docker
 
 verify installation:
+
     sudo docker run hello-world
 
 ## systemctl commands
@@ -69,6 +82,7 @@ verify installation:
 ## Docker Test run
 
 ### Docker test image 'hello-world'
+This will automatically download the hello-world image, start it and stop it:
 
     sudo docker run hello-world
 
@@ -77,8 +91,8 @@ verify installation:
     sudo docker system info
     sudo docker pull nginx
     sudo docker run --name nginx-test -itd -p 8081:80 nginx
-    sudo docker ps
-    sudo docker rm nginx-test
+
+Verify that Nginx is running by going to http://localhost
 
 ## Docker commands
 
@@ -86,17 +100,18 @@ verify installation:
 
 ### Managing local Docker image repo
 
-    sudo docker images
-    sudo docker pull <image from Docker hub>
-    sudo docker rmi <image id>
+    sudo docker images  # List images in local repo
+    sudo docker pull <image from Docker hub>  # Download image from Docker Hub to local repo
+    sudo docker rmi <image id>  # Remove image from local repo
+    sudo docker ps  # Show runnig processes
     
 ### Managing local Docker containers
 
-    sudo docker container ls
-    sudo docker container stop <container id>
-    sudo docker container rm <container id>
+    sudo docker container ls  # List containers, running and stoped
+    sudo docker container stop <container id>  # Stop running container
+    sudo docker container rm <container id>  # Remove container
 
-    sudo docker container prune #removes all stopped containers
+    sudo docker container prune # Removes all stopped containers
 
     sudo docker exec -it <container_name_or_id> /bin/sh # shell access for Alpine images
     sudo docker exec -it <container_name_or_id> /bin/bash # shell access for Ubuntu images
