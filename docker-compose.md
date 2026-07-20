@@ -92,7 +92,7 @@ This will automatically download the hello-world image, start it and stop it:
     sudo docker pull nginx
     sudo docker run --name nginx-test -itd -p 8081:80 nginx
 
-Verify that Nginx is running by going to http://localhost
+Verify that Nginx is running by going to http://localhost:8081
 
 ## Docker commands
 
@@ -120,7 +120,7 @@ Verify that Nginx is running by going to http://localhost
 
     sudo docker compose up -d  # Starts DC 'docker-compose.yaml'
     
-    sudo docker-compose logs -f  # Shows standard-out logs for all apps
+    sudo docker compose logs -f  # Shows standard-out logs for all apps
 
     sudo docker compose ps  # Lists DC containers
 
