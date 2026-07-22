@@ -43,7 +43,22 @@ At the moment there is no database in this system.
 A suggestion to learn more is to expand App1 with a Postgres database [https://www.postgresql.org/](https://www.postgresql.org/).
 - Expand Docker Compose with a Postgres database
 - Expand App1 backend with database connectivity with API.s for App1 frontend.
-- Expand App1 frontend with functionality to interact with App1 backend database functionality. 
+- Expand App1 frontend with functionality to interact with App1 backend database functionality.
+
+## TODO / Learn - Expand with automatic deployment
+
+If you want this system can be expanded with automatic build and deploy of apps.
+
+Recommended application for this is Watchtower [https://containrrr.dev/watchtower/](https://containrrr.dev/watchtower/).
+
+## TODO / Learn - Expand with monitoring and alerts
+
+As it is now the only monitoring in the system is the standard Docker Compose logging and the Traefik Dashboard. For a fully production ready system a proper monitoring and alert application is needed.
+
+Here are some examples:
+- Apprise: unified API to send notifications to Slack, Discord, Telegram, email and other services. It has no resourse or log monitoring and requires the applications to create alerts.
+- Prometheus + Grafana + cAdvisor + Alertmanager: The industry standard for metrics and alerts. Prometheus scrapes metrics from targets, cAdvisor exposes container-level metrics, Grafana visualizes the data using pre-built dashboards, and Alertmanager handles alerts sent by client applications such as the Prometheus server and sends them to external integrations.
+
 
 ## Release notes
 - 2026jul22 - First release.
