@@ -47,7 +47,7 @@ A suggestion to learn more is to expand App1 with a Postgres database [https://w
 
 ## TODO / Learn - Expand with automatic deployment
 
-If you want this system can be expanded with automatic build and deploy of apps.
+The system can be expanded with scheduled image checks and automatic deploy of updated apps. Good for safety and for easy deployment in production.
 
 Recommended application for this is Watchtower [https://containrrr.dev/watchtower/](https://containrrr.dev/watchtower/).
 
