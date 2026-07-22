@@ -17,8 +17,7 @@ services:
     image: traefik:v3.7
     restart: always
     command:
-      - "--log.level=INFO"
-      #- "--log.level=ERROR"
+      - "--log.level=ERROR"
       - "--accesslog=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -37,7 +36,6 @@ services:
     image: kptn-main-frontend:latest
     restart: always
     labels:
-      #- "com.centurylinklabs.watchtower.enable=true"
       - "traefik.enable=true"
       - "traefik.http.routers.kptn-main-frontend.rule=Host(`localhost`)"
 
@@ -48,7 +46,6 @@ services:
     image: kptn-app1-frontend:latest
     restart: always
     labels:
-      #- "com.centurylinklabs.watchtower.enable=true"
       - "traefik.enable=true"
       - "traefik.http.routers.kptn-app1-frontend.rule=Host(`app1.localhost`)"
 

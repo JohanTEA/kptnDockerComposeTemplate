@@ -12,25 +12,29 @@ import (
 var version string
 
 func main() {
-	visitors := 0
+	requestCounter := 0
 
 	// Print the build version
 	fmt.Println("App Version:", version)
 
 	// Define endpoints
-	//   All endpoints must start with '/api' for the routing setup to work and to be able to
-	//   publish the API on the same root-address as the frontend to comply with CORS.
-	http.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
+	//   All API.s used by the frontend must start with '/api'.
+	//   The revese-proxy is set-up to route to this app for '/api' on the same root adress as frontend.
+	//   This is to comply with CORS.
+	//   Internal API.s do not need to be behind '/api'.
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
 	})
 
-	http.HandleFunc("/api", func(w http.ResponseWriter, r *http.Request) {
-		visitors++
-		requestsStr := strconv.Itoa(visitors)
+	http.HandleFunc("/api/status", func(w http.ResponseWriter, r *http.Request) {
+		requestCounter++
 
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]string{"requests": requestsStr})
+		json.NewEncoder(w).Encode(map[string]string{
+			"status": "ok",
+			"requests": strconv.Itoa(requestCounter),
+		})
 	})
 
 	// Start server
