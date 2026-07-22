@@ -9,5 +9,5 @@ Links to the following applications
 
 Plain HTML! - Develop how you like it :)
 
-Note: NGINX is not needed for local development, it's only used in the docker container.
+Note: Nginx is not needed for local development, it's only used in the docker container.
 
