@@ -23,5 +23,14 @@ The goal of this template is to get you fully started locally. Setup of HTTPS ce
 
 See instructions in linked guides on how to setup DNS name and HTTPS on your VPS with Traefik.
 
+## Quick start
+
+- Install Docker Compose - see [docker-compose.md]
+- In terminal, run 
+    ./dockerBuildAll.sh
+    ./dockerComposeStart.sh
+- Go to http://localhost
+- Change it - re-run it!
+
 ## Release notes
 - 2026jul22 - First release.
