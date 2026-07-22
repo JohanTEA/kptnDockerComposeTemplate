@@ -1,11 +1,13 @@
 ##########################################
-# KPTN VPS Docker Compose configuration
+# Docker Compose configuration
 ##########################################
 
+# Run 'dockerBuildAll.sh' first to create application images.
+
 # Traefik dashboard: http://localhost:8080/
-# KPTN Main: http://localhost
-# KPTN App1 FrontEnd: http://app1.localhost/
-# KPTN App1 API health: http://api.app1.localhost/health
+# Main: http://localhost
+# App1 FrontEnd: http://app1.localhost/
+# App1 API status: http://app1.localhost/api/status
 
 
 services:
@@ -30,34 +32,34 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   ##########################################
-  # Service: KPTN Main FrontEnd
+  # Service: Main FrontEnd
   ##########################################
-  kptn-main-frontend:
-    image: kptn-main-frontend:latest
+  main-frontend:
+    image: main-frontend:latest
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.kptn-main-frontend.rule=Host(`localhost`)"
+      - "traefik.http.routers.main-frontend.rule=Host(`localhost`)"
 
   ##########################################
-  # Service: KPTN App1 FrontEnd
+  # Service: App1 FrontEnd
   ##########################################
-  kptn-app1-frontend:
-    image: kptn-app1-frontend:latest
+  app1-frontend:
+    image: app1-frontend:latest
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.kptn-app1-frontend.rule=Host(`app1.localhost`)"
+      - "traefik.http.routers.app1-frontend.rule=Host(`app1.localhost`)"
 
   ##########################################
-  # Service: KPTN App1 BackEnd
+  # Service: App1 BackEnd
   ##########################################
-  kptn-app1-backend:
-    image: kptn-app1-backend:latest
+  app1-backend:
+    image: app1-backend:latest
     restart: always
     ports:
       - ":80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.kptn-app1-backend.rule=Host(`app1.localhost`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.app1-backend.rule=Host(`app1.localhost`) && PathPrefix(`/api`)"
 

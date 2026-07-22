@@ -1,8 +1,8 @@
-# KPTN App1 BackEnd (GoLang)
+# App1 BackEnd (GoLang)
 # Images: https://hub.docker.com/
 
-# Build: sudo docker build -t kptn-app1-backend .
-# Run: sudo docker run -p 8091:8091 kptn-app1-backend
+# Build: sudo docker build -t app1-backend .
+# Run: sudo docker run -p 8091:8091 app1-backend
 
 # Build stage
 ## golang:<golang version>-alpine
@@ -10,7 +10,7 @@ FROM golang:1.26-alpine AS builder
 WORKDIR /appSrc
 COPY . .
 ENV CGO_ENABLED=0
-RUN go build -C ./src -ldflags "-s -w -X main.version=$(cat version.txt)" -o /dist/kptnApp1BackEnd
+RUN go build -C ./src -ldflags "-s -w -X main.version=$(cat version.txt)" -o /dist/app1BackEnd
 
 # Runtime stage
 ## alpine:<alpine version>
@@ -22,4 +22,4 @@ COPY --from=builder /dist /app
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 RUN chown -R appuser:appgroup /app
 USER appuser
-ENTRYPOINT ["/app/kptnApp1BackEnd"]
+ENTRYPOINT ["/app/app1BackEnd"]
