@@ -1,6 +1,6 @@
 # Setup VPS from scratch
 
-source: https://www.youtube.com/watch?v=F-9KWQByeU0
+Reference: https://www.youtube.com/watch?v=F-9KWQByeU0 - YT, Dreams Of Code, Setting up a production ready VPS, Traefik
 
 ## Create VPS
 
@@ -30,7 +30,7 @@ ex. 'hostinger':
 ## Setup VPS
 
 - login
-ssh kptn@<vps ip adress>
+    ssh kptn@<vps ip adress>
 - set-up ssh key for kptn user
 - disable root login, file: /etc/ssh/sshd_config
 PermitRootLogin no

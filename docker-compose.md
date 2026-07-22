@@ -5,7 +5,7 @@ https://hub.docker.com/
 
 https://docs.docker.com/get-started/
 
-## Learn
+## References / Learn
 
 ### Docker Compose intro
 
@@ -30,9 +30,9 @@ https://www.youtube.com/watch?v=mZbLvGQqEvY - Andrew Schmelyun, Manage multiple 
 
 ## Installation (Local development and VPS server)
 
-Note! Always use the latest instruction from:
+**Note!** Always use the latest instructions from Docker:
 
-    https://docs.docker.com/compose/install/linux/
+- https://docs.docker.com/compose/install/linux/
 
 ### Add Docker's official GPG key:
 

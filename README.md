@@ -4,18 +4,18 @@ Introduction to VPS running Docker Compose with Traefik routing, Nginx frontend 
 
 The guide assumes you run Linux (ex. Ubuntu) on the computer.
 
-- VPS OS - see [vpsOsSetup.md]
-- Docker Compose - see [docker-compose.md]
+- VPS OS - see [vpsOsSetup.md](vpsOsSetup.md)
+- Docker Compose - see [docker-compose.md](docker-compose.md)
 - Traefik for reverse proxy and load balancing
 - Main FrontEnd - Nginx
 - App1 FrontEnd - Nginx
 - App1 BackEnd - Go
 
 For application details:
-- [docker-compose.yaml]
+- [docker-compose.yaml](docker-compose.yaml)
 
 Developer notes for Nginx:
-- [nginxInfo.md]
+- [nginxInfo.md](nginxInfo.md)
 
 ## Goal
 
@@ -25,7 +25,7 @@ See instructions in linked guides on how to setup DNS name and HTTPS on your VPS
 
 ## Quick start
 
-- Install Docker Compose - see [docker-compose.md]
+- Install Docker Compose - see [docker-compose.md](docker-compose.md)
 - In terminal, run 
     ./dockerBuildAll.sh
     ./dockerComposeStart.sh
