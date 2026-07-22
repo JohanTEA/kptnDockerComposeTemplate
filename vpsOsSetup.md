@@ -1,4 +1,4 @@
-# KPTN - setup VPS from scratch
+# Setup VPS from scratch
 
 source: https://www.youtube.com/watch?v=F-9KWQByeU0
 
@@ -42,6 +42,7 @@ UsePAM no
     ssh root@<vps ip-adress>
 
 ## Firewall
+
 Rules:
 - allow all outgoing requests by default
 - deny all incoming requests by default
@@ -71,9 +72,8 @@ See dockerCompose for installation and running on VPS.
 
 Docker Compose runs:
 - Reverse Proxy (ex. Traefik) with TLS/HTTPS support
-- Watchtower for automatic rolling deploys
-- Monitoring (ex. UptimeRobot)
 - Applications
+- Other infrastructure tools as Watchtower, etc.
 
 ## Optional
 

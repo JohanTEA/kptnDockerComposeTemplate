@@ -30,9 +30,9 @@ https://www.youtube.com/watch?v=mZbLvGQqEvY - Andrew Schmelyun, Manage multiple 
 
 ## Installation (Local development and VPS server)
 
-https://docs.docker.com/engine/install/ubuntu/
+Note! Always use the latest instruction from:
 
-https://docs.docker.com/compose/install/linux/
+    https://docs.docker.com/compose/install/linux/
 
 ### Add Docker's official GPG key:
 

@@ -1,9 +1,9 @@
-# kptn-app1-frontend - KPTN Main FrontEnd
+# app1-frontend - App1 FrontEnd
 ## Reference: https://docs.docker.com/reference/dockerfile/
 ## Images: https://hub.docker.com/
 
-## Build: sudo docker build -t kptn-app1-frontend .
-## Run: sudo docker run -p 8081:80 kptn-app1-frontend
+## Build: sudo docker build -t app1-frontend .
+## Run: sudo docker run -p 8081:80 app1-frontend
 
 # Build stage
 ## nginx:<nginx version>-alpine

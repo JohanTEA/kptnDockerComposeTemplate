@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-image_name=kptn-app1-frontend
+image_name=main-frontend
 image_version=$(cat ./version.txt)
 
 echo ""

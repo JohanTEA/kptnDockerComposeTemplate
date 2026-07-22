@@ -1,9 +1,9 @@
-# kptn-main-frontend - KPTN Main FrontEnd
+# main-frontend - Main FrontEnd
 ## Reference: https://docs.docker.com/reference/dockerfile/
 ## Images: https://hub.docker.com/
 
-## Build: sudo docker build -t kptn-main-frontend .
-## Run: sudo docker run -p 8080:8080 kptn-main-frontend
+## Build: sudo docker build -t main-frontend .
+## Run: sudo docker run -p 8080:8080 main-frontend
 
 # Build stage
 ## nginx:<nginx version>-alpine
