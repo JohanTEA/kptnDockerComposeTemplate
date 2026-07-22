@@ -36,5 +36,14 @@ See instructions in linked guides on how to setup DNS name and HTTPS on your VPS
 - Go to http://localhost
 - Change it - re-run it!
 
+## TODO / Learn - Expand App1 with a database
+
+At the moment there is no database in this system.
+
+A suggestion to learn more is to expand App1 with a Postgres database [https://www.postgresql.org/](https://www.postgresql.org/).
+- Expand Docker Compose with a Postgres database
+- Expand App1 backend with database connectivity with API.s for App1 frontend.
+- Expand App1 frontend with functionality to interact with App1 backend database functionality. 
+
 ## Release notes
 - 2026jul22 - First release.
