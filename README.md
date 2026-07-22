@@ -23,5 +23,5 @@ The goal of this template is to get you fully started locally. Setup of HTTPS ce
 
 See instructions in linked guides on how to setup DNS name and HTTPS on your VPS with Traefik.
 
-## Versions
+## Release notes
 - 2026jul22 - First release.
