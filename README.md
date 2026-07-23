@@ -34,7 +34,7 @@ See instructions in linked guides on how to setup DNS name and HTTPS on your VPS
 ./dockerComposeStart.sh
 ```
 3. Go to http://localhost
-4. Change it - re-build and run it again!
+4. Change it - build and restart it!
 
 ## TODO / Learn - Expand App1 with a database
 
