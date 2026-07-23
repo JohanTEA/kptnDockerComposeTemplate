@@ -27,14 +27,14 @@ See instructions in linked guides on how to setup DNS name and HTTPS on your VPS
 
 ## Quick start
 
-- Install Docker Compose - see [docker-compose.md](docker-compose.md)
-- In terminal, run
-
-    ./dockerBuildAll.sh
-    ./dockerComposeStart.sh
-
-- Go to http://localhost
-- Change it - re-run it!
+1. Install Docker Compose - see [docker-compose.md](docker-compose.md)
+2. In terminal, run
+```shell
+./dockerBuildAll.sh
+./dockerComposeStart.sh
+```
+3. Go to http://localhost
+4. Change it - re-run it!
 
 ## TODO / Learn - Expand App1 with a database
 
@@ -61,4 +61,5 @@ Here are some examples:
 
 
 ## Release notes
+
 - 2026jul22 - First release.

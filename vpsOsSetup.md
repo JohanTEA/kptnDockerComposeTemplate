@@ -11,35 +11,53 @@ ex. 'hostinger':
 - add ssh key - todo...
 - deploy VPS
 - verify ssh connection
-    ssh root@<ip-adress>
+```shell
+ssh root@<ip-adress>
+```
 - add new user account
-    adduser kptn
+```shell
+adduser kptn
+```
 - add sudo privilege to new user (= add new user to 'sudo' group)
-    usermod -aG sudo kptn
+```shell
+usermod -aG sudo kptn
+```
 
 ## DNS name
 
 - buy DNS name
 - clear default ANC/DNS records
 - lookup VPS IP address
-    ip addr
+```shell
+ip addr
+```
 - point DNS name to vps IP adress
 - wait for change to take effect (up to a day)
-    nslookup <dns.name>
+```shell
+nslookup <dns.name>
+```
 
 ## Setup VPS
 
 - login
-    ssh kptn@<vps ip adress>
+```shell
+ssh kptn@<vps ip adress>
+```
 - set-up ssh key for kptn user
 - disable root login, file: /etc/ssh/sshd_config
-PermitRootLogin no
-UsePAM no
+```
+    PermitRootLogin no
+    UsePAM no
+```
 - check other ssh conf files and repeat
 - restart ssh service
-    sudo systemctl reload ssh
+```shell
+sudo systemctl reload ssh
+```
 - verify that root user is blocked
-    ssh root@<vps ip-adress>
+```shell
+ssh root@<vps ip-adress>
+```
 
 ## Firewall
 
@@ -52,19 +70,24 @@ Rules:
 
 UFW - Uncomplicated Firewall, installed on Ubuntu by default.
 If not installed, install:
-    sudo apt install ufw
+```shell
+sudo apt install ufw
+```
 
 (!) Warning 1: Do all steps below before activating ufw, setting up ufw without allowing OpenSSH will kill your VPS.
+
 (!) Warning 2: Docker Compose will override ufw/ip-tables if set-up incorrectly - reverse proxy needed with docker app config 'ports:' having '127.0.0.1:<port>' or Traefik labling instead.
-    sudo ufw default allow outgoing
-    sudo ufw default deny incoming
-    sudo ufw allow OpenSSH
-    sudo ufw allow 80
-    sudo ufw allow 443
-    
-    sudo ufw show added
-    sudo ufw status verbose
-    sudo ufw enable
+```shell
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw allow OpenSSH
+sudo ufw allow 80
+sudo ufw allow 443
+
+sudo ufw show added
+sudo ufw status verbose
+sudo ufw enable
+```
 
 ## Docker Compose
 
@@ -78,8 +101,11 @@ Docker Compose runs:
 ## Optional
 
 - install tmux (ssh session keep alive)
-    sudo apt install tmux
+```shell
+sudo apt install tmux
+```
 - logout
 - login using tmux
-    tmux attach -t <kptn@ip-adress>
-
+```shell
+tmux attach -t <kptn@ip-adress>
+```

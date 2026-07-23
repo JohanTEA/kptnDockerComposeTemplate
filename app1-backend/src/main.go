@@ -18,7 +18,7 @@ func main() {
 	fmt.Println("App Version:", version)
 
 	// Define endpoints
-	//   All API.s used by the frontend must start with '/api'.
+	//   All API.s used by the frontend or externally must start with '/api'.
 	//   The revese-proxy is set-up to route to this app for '/api' on the same root adress as frontend.
 	//   This is to comply with CORS.
 	//   Internal API.s do not need to be behind '/api'.
@@ -32,7 +32,7 @@ func main() {
 
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]string{
-			"status": "ok",
+			"status":   "ok",
 			"requests": strconv.Itoa(requestCounter),
 		})
 	})
