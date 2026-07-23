@@ -34,7 +34,7 @@ See instructions in linked guides on how to setup DNS name and HTTPS on your VPS
 ./dockerComposeStart.sh
 ```
 3. Go to http://localhost
-4. Change it - re-run it!
+4. Change it - re-build and run it again!
 
 ## TODO / Learn - Expand App1 with a database
 
@@ -58,7 +58,6 @@ As it is now the only monitoring in the system is the standard Docker Compose lo
 Here are some examples:
 - Apprise: unified API to send notifications to Slack, Discord, Telegram, email and other services. It has no resourse or log monitoring and requires the applications to create alerts.
 - Prometheus + Grafana + cAdvisor + Alertmanager: The industry standard for metrics and alerts. Prometheus scrapes metrics from targets, cAdvisor exposes container-level metrics, Grafana visualizes the data using pre-built dashboards, and Alertmanager handles alerts sent by client applications such as the Prometheus server and sends them to external integrations.
-
 
 ## Release notes
 
